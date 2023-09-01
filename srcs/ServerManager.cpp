@@ -82,6 +82,7 @@ int ServerManager::openPort(ServerManager::PORT port, Server& server)
 	errorCode = listen(serverSocket, LISTENCAPACITY);
 	if (errorCode)
 		exitWebServer("listen() error");
+	freeaddrinfo(info);
 	return serverSocket;
 }
 
